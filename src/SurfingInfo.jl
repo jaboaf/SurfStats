@@ -10,7 +10,9 @@ function totVar(A::Array{T,2}) where T <: Number
         v += abs(reduce(*,[ A[i,τ[i]] for i in 1:n]) )
     end
     return v
-end Defining isordered on orderable collections of numbers
+end
+
+# Defining isordered on orderable collections of numbers
 function isordered(X::Array{T}) where T <: Number
     return all([ X[i] < X[i+1] for i in 1:(length(X)-1) ])
 end
