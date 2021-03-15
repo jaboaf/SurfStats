@@ -1,5 +1,13 @@
 include("SymGrpAndReps.jl")
 
+
+MY AIM TODAY IS TO MAKE THIS DATA INTO ONE BIG TENSOR.
+
+
+
+
+
+
 using JSON: parse
 
 function totVar(A::Array{T,2}) where T <: Number
