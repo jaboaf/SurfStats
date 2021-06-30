@@ -22,29 +22,29 @@ evtNameToEVT = Dict([
 ])
 
 const RND = [i for i in 1:7]
-const CC = true
+const CC = false
 if CC
 	data = JSON.parse( open("data/CleanAllDataCC.txt", "r") )
-	@enum ORIG AU=1 BR ES FR PR US ZA FJ ID IT JP NZ
+	@enum ORIG AUS=1 BRA ESP FRA PRT USA ZAF FJI IDN ITA JPN NZL
 	const C = collect(instances(ORIG)[1:7])
 	#= CTRY Defined by ISO 3166-1
 	Using 2 digit codes
 	"-1"
 	=#
 	isoDict = Dict([
-		"Australia" => AU,
-		"Brazil" => BR,
-		"Basque Country" => ES,
-		"Spain" => ES,
-		"France" => FR,
-		"Portugal" => PR,
-		"United States" => US,
-		"South Africa" => ZA,
-		"Fiji" => FJ,
-		"Indonesia" => ID,
-		"Italy" => IT,
-		"Japan" => JP,
-		"New Zealand" => NZ
+		"Australia" => AUS,
+		"Brazil" => BRA,
+		"Basque Country" => ESP,
+		"Spain" => ESP,
+		"France" => FRA,
+		"Portugal" => PRT,
+		"United States" => USA,
+		"South Africa" => ZAF,
+		"Fiji" => FJI,
+		"Indonesia" => IDN,
+		"Italy" => ITA,
+		"Japan" => JPN,
+		"New Zealand" => NZL
 	])
 else
 	data = JSON.parse( open("data/CleanAllDataNC.txt", "r") )
