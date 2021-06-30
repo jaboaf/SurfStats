@@ -1,3 +1,4 @@
+include("SymGrpAndReps.jl")
 using JSON
 
 # 3 instances of SZN
@@ -137,8 +138,8 @@ sort(WAVES);
 E(X::Array,i::K) where {K<:Integer} =dropdims( sum(X,dims=setdiff(1:ndims(X),i)),dims=tuple(setdiff(1:ndims(X),i)...) )
 E(X::Array,I::NTuple) =dropdims(sum(X,dims=setdiff(1:ndims(X),I)),dims=tuple(setdiff(1:ndims(X),I)...))
 
-μₐ(D::Array{Array{T,N} where N}) where T<:Number = map(x->sum(abs.(AltOp(x))),⨁(D))
-μₛ(D::Array{Array{T,N} where N}) where T<:Number = map(x->sum(abs.(SymOp(x))),⨁(D))
+μₐ(D::Array{Array{T,N} where N}) where T<:Number = map(x->sum(abs.(S(x))),⨁(D))
+μₛ(D::Array{Array{T,N} where N}) where T<:Number = map(x->sum(abs.(S(x))),⨁(D))
 
 #cov(X::Array,i::K,j::K) where {K<:Integer} = E(X,(i,j))-E(X,i)⊗E(X,j)
 #cov(X::Array,I::NTuple,j::K) where {K<:Integer} = E(X,(I...,j))-E(X,I)⊗E(X,j)
@@ -173,7 +174,7 @@ function embedd(t::Tuple{T,Vararg{T,N} where N} where T <:Union{Array{ORIG,1},Bi
 		q = map(pod->sum(pod),q)
 		return ⊗(q...)
 	else
-		blocks = map(pod->SymOp(⊗(pod...)),q)
+		blocks = map(pod->S(⊗(pod...)),q)
 		return ⊗(blocks...)
 	end
 end
