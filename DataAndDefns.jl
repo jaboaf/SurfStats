@@ -107,15 +107,17 @@ for wave in data
 		rnd = maxRnd[wave[2]["evtId"]]-Base.parse(Int,wave[2]["rnd"])+1,
 		ht = Base.parse(Int, wave[2]["heat"]),
 		athOrig = isoDict[ wave[2]["athOrig"] ],
+		athName = wave[2]["athName"],
 		I_match = athorig in subScoOrig,
 		m_c = mult_c,
 		m_b = mult_b,
 		λ_c = part_c,
-		λ_b = part_b
+		λ_b = part_b,
+		s=scos
 	)
 	push!(WAVES,wv)
 end
-sort(WAVES);
+sort!(WAVES);
 
 
 ⊗(A::Array{T},B::Array{T}) where T<: Number = prod.(Base.product(A,B))
@@ -138,8 +140,8 @@ sort(WAVES);
 E(X::Array,i::K) where {K<:Integer} =dropdims( sum(X,dims=setdiff(1:ndims(X),i)),dims=tuple(setdiff(1:ndims(X),i)...) )
 E(X::Array,I::NTuple) =dropdims(sum(X,dims=setdiff(1:ndims(X),I)),dims=tuple(setdiff(1:ndims(X),I)...))
 
-μₐ(D::Array{Array{T,N} where N}) where T<:Number = map(x->sum(abs.(S(x))),⨁(D))
-μₛ(D::Array{Array{T,N} where N}) where T<:Number = map(x->sum(abs.(S(x))),⨁(D))
+μₐ(D::Array{Array{T,N} where N}) where T<:Number = map(x->sum(abs.(𝐒(x))),⨁(D))
+μₛ(D::Array{Array{T,N} where N}) where T<:Number = map(x->sum(abs.(𝐀(x))),⨁(D))
 
 #cov(X::Array,i::K,j::K) where {K<:Integer} = E(X,(i,j))-E(X,i)⊗E(X,j)
 #cov(X::Array,I::NTuple,j::K) where {K<:Integer} = E(X,(I...,j))-E(X,I)⊗E(X,j)
@@ -174,9 +176,52 @@ function embedd(t::Tuple{T,Vararg{T,N} where N} where T <:Union{Array{ORIG,1},Bi
 		q = map(pod->sum(pod),q)
 		return ⊗(q...)
 	else
-		blocks = map(pod->S(⊗(pod...)),q)
+		blocks = map(pod->𝐒(⊗(pod...)),q)
 		return ⊗(blocks...)
 	end
+end
+e_G(t) = embedd(t)
+
+# varRng takes in element of field name s of a wave ∈ WAVES and returns sorted {wave.s | wave ∈ WAVES}
+varRng(s::Symbol) = sort(unique(map(w->w[s],WAVES)))
+varRng(S::NTuple{N,Symbol}) where N = sort(unique(NamedTuple{S}.(WAVES)))
+
+function partitionBy(s::Symbol)
+	By = varRng(s)
+	partition = [b => [] for b in By]
+	for wave in WAVES
+		i = findfirst(==(wave[s]), By) # note: can call field of named tuple with []
+		push!(partition[i][2], wave )
+	end
+	return partition
+end
+function partitionBy(s::Symbol;val::Symbol)
+	By = varRng(s)
+	partition = [b => [] for b in By]
+	for wave in WAVES
+		i = findfirst(==(wave[s]), By) # note: can call field of named tuple with []
+		push!(partition[i][2], wave[val] )
+	end
+	return partition
+end
+function partitionBy(S::NTuple{N,Symbol}) where N
+	By = varRng(S)
+	partition = [b => [] for b in By]
+	for wave in WAVES
+		i = findfirst(==(NamedTuple{S}(wave)), By) # note: can call field of named tuple with []
+		push!(partition[i][2], wave )
+	end
+	return partition
+end
+
+function partitionBy(S::NTuple{N,Symbol};vals::NTuple{N,Symbol}) where N
+	By = varRng(S)
+	partition = [b => [] for b in By]
+	for wave in WAVES
+		i = findfirst(==(NamedTuple{S}(wave)), By) # note: can call field of named tuple with []
+		push!(partition[i][2], NamedTuple{vals}(wave) )
+	end
+	return partition
 end
 
 

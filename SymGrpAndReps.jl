@@ -133,21 +133,21 @@ end
 
 # Symmetrization operations
 # for a permutation
-function S( M::Array{<:Number, d}) where d
+function 𝐒( M::Array{<:Number, d}) where d
     return 1//factorial(d) * mapreduce( p -> permutedims(M, p), +, Sym(d) )
 end
 # for a d-dimensional array
-function S( M::BitArray{d}) where d
+function 𝐒( M::BitArray{d}) where d
     return 1/factorial(d) * mapreduce( p -> permutedims(M, p), +, Sym(d) )
 end
 
 # Alternating operations
 # for a permutation
-function A( M::Array{<:Number,d}) where d
+function 𝐀( M::Array{<:Number,d}) where d
     return 1//factorial(d)* mapreduce( p -> sgn(p)*permutedims(M, p), +, Sym(d) )
 end
 # for a d-dimensional array
-function A( M::BitArray{d}) where d
+function 𝐀( M::BitArray{d}) where d
     return 1/factorial(d)* mapreduce( p -> sgn(p)*permutedims(M, p), +, Sym(d) )
 end
 

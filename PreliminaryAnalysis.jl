@@ -47,12 +47,10 @@ for c in C
 		plot(sort(Diffs[c]),LinRange(0,1,length(Diffs[c])), label="$c ",hold=true,xlim=(-1.5,1.5))
 	end
 end
-if CC title("Empirical CDF of Difference in Means by Country")
-else title("Empirical CDF of Difference in Means by Origin")
-end
+title("Empirical CDF of Difference in Means by Country (CC=$CC)")
+legend(location=4)
+savefig("visuals/ttests/CC$(CC)/EmpDiffInMeansCDF.png",gcf())
 println(join(Ctry, "&"), " \\\\ \\hline")
 println(join(N, "&"), " \\\\ \\hline")
 println(join(M, "&"), " \\\\ \\hline")
 println(join(T, "&"), " \\\\ \\hline")
-legend(location=4)
-savefig("visuals/ttests/CC$(CC)/EmpDiffInMeansCDF.png",gcf())
