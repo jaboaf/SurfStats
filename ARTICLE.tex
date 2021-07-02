@@ -12,7 +12,7 @@
 \newtheorem*{claim}{Claim}
 \newtheorem*{lemma}{Lemma}
 
-\title{Random Arrangements in Surf Competition Judging: Testing Exchangeability}
+\title{Random Panel Partitions in Surf Competitions: Testing Nationality Bias using Exchangeability }
 \author{Jojo Aboaf and Marty Wells}
 \date{June 30th 2021}
 
@@ -22,6 +22,8 @@
 
 \begin{abstract}
 We have collected the most complete data set on international surf competition publicly available.
+In this paper, we focus on the 2017, 2018, and 2019 seasons of the Men’s Championship Tour because it offers the fullest set of waves that list judge scores along with their nationality. This study uses 15,990 waves surfed in 2017, 2018, and 2019 seasons to empirically analyze the role of judge nationalities in the Men's Championship Tour.
+
 We present an empirical method for analyzing arrangement data in order to test for Nationality bias in International Surf Competitions. 
 We present a test for exchangeability  an empirical method for analyzing arrangement data in order to test for Nationality bias in International Surf Competitions. 
 
@@ -31,7 +33,7 @@ Editing Notes: I don't know where this should go.
 A wide range of non-performance based biases are documented and researched using various methods; for example, Price and Wolfers study own-race bias in NBA refereeing using [        ], [   ] and [  ] investigate nationality bias in synchronized swimming judging using [       ], and ordering bias of gymnastics judges. These are only a few examples in sports, but the social-cognitive underpinnings of biases are a key area of research in psychology and legal studies.
 
 \section{Motivation}
-Our goal in this paper is to construct a method to determine if judges have a tendency to give higher scores to surfers from their home countries compared to judges with nationalities different from the surfer. To achieve this we will identify the empirical distribution of arrangements of judges and test if this distribution is significantly different from its symmetric part. That is, 
+Our goal in this paper is to construct a method to determine if judges have a tendency to give higher scores to surfers from their home countries compared to judges with nationalities different from the surfer. To achieve this we will identify the empirical distribution of arrangements of judges and test if this distribution is significantly different from its symmetric part.
 
 Our focus will be on arrangements or partial arrangements of judges, which we will analyze "by match" and "by country". An arrangement is simply a sequence and a partial arrangement is a sequence of arrays. We define an array as an unordered collection of things (in our case, country labels), and any thing may occur with any multiplicity in an array.
 
@@ -52,13 +54,13 @@ Col Sum  & 1139 (0.0821) & 12733 (0.9179)&  13872 (1.0000)\\
 \end{tabular} \end{center}
 \end{table*}
 
-Our ideas were inspired by those of Lebanon and Mao in \cite{LebMao08} and Moyal in \cite{Moyal62}. We have also made extensive use of the ideas in Persi Diaconis' book, Group Representations in Probability and Statistics, and direct the interested reader there \cite{Diaconis88}. Together, they provide a comprehensive approach to data which falls into the top row.
+Our ideas were inspired by those of Lebanon and Mao in \cite{LebMao08} and Moyal in \cite{Moyal62}. We have also made extensive use of the ideas in Persi Diaconis' book, Group Representations in Probability and Statistics, and direct the interested reader there \cite{Diaconis88}. Lebanon and Mao, and Diaconis provide a comprehensive approach to data which falls into the top row of table 1.
 
-The surfing data evidently requires an approach that is suited to handle labels occurring with multiplicity, and particularly the case where these labels are not totally ordered. To adress these needs, we will present two approaches. The first will treat an ordered partition of a judges as a vector-partition of the vector whose coordinates correspond to the number of judges from each country. This will omit some structure, leaving hypothesis testing procedures less enlightening. The second, is inspired by Moyal's approach to point processes when a population consists of distinguishable or indistinguishable members. We provide a similar, more explicit, algebraic construction which will account for multiplicities arising from unordered observations. In doing so, we will find the remaining parts of the table to be important special cases.
+The surfing data evidently requires an approach that is suited to handle labels occurring with multiplicity (row 2), and particularly the case where these labels are not totally ordered (row 2, column 2). To address these needs, we will present two approaches. The first will treat an ordered partition of a judges as a vector-partition of the integer vector whose coordinates correspond to the number of judges from each country. This will omit some structure, leaving hypothesis testing procedures less enlightening. The second, is inspired by Moyal's approach to point processes when a population consists of distinguishable or indistinguishable members. We provide a similar, more explicit, algebraic construction which will account for multiplicities arising from unordered observations. In doing so, we will accommodate data with multiplicities and find remaining parts of the table to be important special cases.
 
-More broadly, the methodology and associated computation presented is applicable to any situation in which the unit of analysis is a sequence of arrays of labels. With the surf-competition data, we consider the order statistic of a panel, which is a sequence where the ith entry is an array containing the nationalities of the judges that gave the ith highest score. This means that order statistic is of a random length, depending on the number of distinct scores given my the judges.
+More broadly, the methodology and associated computation presented is applicable to any situation in which the unit of analysis is a sequence of arrays of labels. With the surf-competition data, we consider the order statistic of a panel, which is a sequence where the ith entry is an array containing the nationalities of the judges that gave the ith highest score.
 
-In applied settings we cannot expect labels to occur without multiplicity or be totally ordered or be of uniform length.
+This means that order statistic is of a random length, depending on the number of distinct scores given my the judges. In applied settings we cannot expect labels to occur without multiplicity or be totally ordered or be of uniform length.
 
 %A "matching" judge is one that has the same nationality as the surfer being scored, and a non-matching judge is a judge with a different nationality than the surfer being scored. This reduces judges for a given wave to a binary variable. It the more general "by country" case, judges are identified by their nationality, which leaves a random arrangement
 %To analyze the orders of judges by nationality, it suffices to analyze the orderings of the set $C := \{AUS, BRA, FRA, \dots, ZAF\}$, which is the set of all nationalities of judges who scored any wave from 2017 to 2019.
@@ -69,19 +71,28 @@ In applied settings we cannot expect labels to occur without multiplicity or be 
 \subsection{Overview}
 The WSL Championship Tour (CT) is a series of events in which surfers are allocated points based on their placement in each of the constituent events and the surfer with the most points at the end of the season is crowned the WSL CT champion. While event formats and point allocation mechanisms have changed, surfers that advance though more rounds of an event are allocated more points. In addition to Championship Tour (CT), the WSL operates multiple Qualifying Series (QS): QS10000, QS6000, QS3000, QS1500, and QS1000. The number associated with a certain qualifying series indicates the number of points awarded to the winner of one of its constituent events. The specific breakdown of points awarded for various placement at QS events can be found in Appendix B of the WSL Rule Book.
 
-In this paper, we focus on the 2017, 2018, and 2019 seasons of the Men’s Championship Tour because it offers the fullest set of waves that list judge scores along with their nationality. This study uses 15,990 waves surfed in 2017, 2018, and 2019 seasons to empirically analyze the role of judge nationalities in the Men's Championship Tour.
-\subsection{Format}
-Each year, the 32 highest ranked (short board) surfers are invited to participate in the”Championship Tour” (CT), which consists of 11 surf competitions in 7 different countries.Each competition has 7 rounds, each consisting of 1 to 16 heats, and each heat has 2 to 3 surfers. Within a heat, a surfer may attempt to ride any number of waves, but their final heat score is the sum of their two highest scoring waves. The surfer with the highest heat score places 1st in the heat, the surfer with the next highest heat score places 2nd in the heat. If there are 3 surfers, the surfer with the third highest heat score will place 3rd in the heat.
-\subsection{Data}
-The World Surf League (WSL) holds a variety of tours or series' at the professional or amateur level (similar to how the MLB organizes A, AA, and AAA baseball). A "tour" or "series" is a sequence of events. Tours have seasons that typically last no more than 365 days and they tend to be contained within one calendar year (i.e. there is a 2019 season of a tour).
-We collected some rich data on the 2017, 2018, and 2019 seasons of the Men's Championship Tour (CT). This is the highest level of competitive short board surfing in the world. Each season typically consists of 10 or 11 surf competitions, which are called "events". The format of an event has changed throughout our sample, but they are fairly similar. An event consists of 7 or 8 rounds, and within each round there are some number of heats. A "heat" is the level where direct competition between athletes takes place. Typically, there are 2 or 3 surfers in a heat and the duration is 22 or 35 minutes. During a heat, a surfer may attempt to ride any number of waves. Anytime a surfer rides a wave, they receive a non-zero score determined by the scores of a judging panel. There are 5 judges on a panel for any given heat. They are visually separated and do not discuss scores. When a surfer takes a wave, they each observe the ride and write down a score which is some number between 0.1 and 10.0 and it is precise up to the tenths place. The highest and lowest scores given by the panel are dropped, and the surfer receives the mean of the 3 remaining scores for their ride, this is called the "wave score". These are rounded to 2 digits. At any given point in a heat, a surfer has a "heat score", which is the sum of their two highest scores, and simply the sum of their scores if they have surfed 0, 1, or 2 waves. When the time allocated for a heat elapses, a horn will sound, and the surfer with the highest heat score is awarded first place, the surfer with the second highest score is awarded second, and so on, if there are more surfers. The result of finishing a heat in a particular place depends on the round.  Each round has a rule that determines which surfers advance, and what (round,heat) they advance to.  Surfers that do not advance ”exit” the event and are given some number of points. (The longer a surfer stays in an event, the more points they are allocated at an exit). The 2019 event format is depicted below.
-THOUGHT: Maybe i should add number of points to the exists.
-\includegraphics[width=\textwidth]{./visuals/2019EvtFormat.jpeg}
+\subsection{Format of Men's Championship Tour}
+Each year, the 32 highest ranked (short board) surfers are invited to participate in the ”Championship Tour” (CT), which consists of 10 or 11 surf competitions in 7 different countries. Each competition has 7 or 8 rounds, consisting of 1 to 16 heats, and each heat has 2 to 3 surfers and is 22 to 35 minutes long. Within a heat, a surfer may attempt to ride any number of waves, but their final heat score is the sum of their two highest scoring waves. The surfer with the highest heat score places 1st in the heat, the surfer with the next highest heat score places 2nd in the heat, and if there is another surfer, they place third.
 
-\subsection{Intricacies of the Data Generating Process}
-The motivation for this publication is not only to present some analytical statistical methods to panel data but also to describe the intricacies of (this) surfing data. Explicitly, we have focused our efforts on one specific part of this data, the panel. There are many other aspects of this data that make it interesting from a statistical perspective.
+\section{Data}
+We collected data on every wave surfed in the 2017, 2018, and 2019 seasons of the Men's Championship Tour (CT). During a heat, a surfer may attempt to ride any number of waves. Anytime a surfer rides a wave, they receive a non-zero score determined by the scores of a judging panel. There are 5 judges on a panel for any given heat. They are visually separated and do not discuss scores. When a surfer takes a wave, they each observe the ride and write down a score which is some number between 0.1 and 10.0 and it is precise up to the tenths place. The highest and lowest scores given by the panel are dropped, and the surfer receives the mean of the 3 remaining scores for their ride, this is called the "wave score". These are rounded to 2 digits. At any given point in a heat, a surfer has a "heat score", which is the sum of their two highest scores, and simply the sum of their scores if they have surfed 0, 1, or 2 waves. When the time allocated for a heat elapses, a horn will sound, and the surfer with the highest heat score is awarded first place, the surfer with the second highest score is awarded second, and so on.
 
-\subsubsection{Notions of “Origin”, “Country”, or “Nationality”}
+\subsection{Data Quality}
+
+% I need to figure out how to format this.
+\begin{table*}
+\caption{Completeness of Judging Observations Data}
+\label{CompletenessJudgeObs}
+\begin{center} \begin{tabular}{|c|c|c|c|c|c|c|c|} \hline
+Year & Waves & 0 Origins & 5 Origins & Total Judge Origins &  3 Scores & 5 Scores & Total Judge Scores \\ \hline
+2017 & 7328 & 5210 & 2118 & 10590 & 299 & 7029 & 36042 \\ \hline
+2018 & 6639 & 336 & 6303 & 31515 & 0 & 6639 & 33195 \\ \hline
+2019 & 7648 & 79 & 7569 & 37845 & 0 & 7648 & 38240 \\ \hline
+Total & 21615 & 5625 & 15990 & 79950 & 299 & 21316 & 107477  \\ \hline
+\end{tabular} \end{center}
+\end{table*}
+
+\subsection{Notions of “Origin”, “Country”, or “Nationality”}
 When collecting nationality associated with a particular athlete or a judge’s score, we observed a set of labels. These were not limited to the following set of countries:
 	{AUS,BRA, ESP, FRA, PRT, USA, ZAF, FJI, IDN, ITA, JPN, NZL}
 The original fields on the world surf league website also included Hawaii, French Polynesia, and Basque Country. None of these are globally recognized as independent nations. Hawaii is a state contained in the United States, French Polynesia is collective of France, and Basque Country is autonomous community in Spain. There is a less strict view of nationality, and one’s particular definition may render all, some, or none of the 3 a nationality. “Origin” seems to be a more inclusive term to describe where someone comes from, or how they identify that for themselves.
@@ -92,42 +103,41 @@ C = {AUS,BRA, ESP, FRA, PRT, USA, ZAF, FJI, IDN, ITA, JPN, NZL}
 R = {AUS, BAS, BRA, ESP, FRA, HAW, PRT, USA, ZAF, IDN, ITA, JPN, NZL}
 Methods presented do not require you have notion or another, merely that one is consistent in this belief. Conclusions may differ depending on ones preferred definition. We encourage the reader to select one of these as their forgoing definition and observe how this choice may lead to different conclusions.
 
-Much of the 2017 panel data includes judge scores and omits some of the judge nationalities. This is not a result of the web scraping process, rather the information available on the WSL site. A ‘-1’ in a judge nationality field indicates it was not available is unknown. Precisely, ‘-1’ may be interpreted as “one of the elements of C or some other country”, and likewise with R.
+Much of the 2017 panel data includes judge scores and omits some of the judge nationalities. This is not a result of the web scraping process, rather the information available on the WSL site. A ‘-1’ in a judge nationality field indicates it was not available and is unknown (to us). Precisely, ‘-1’ should be interpreted as "any country" and is not restricted to the countries observed.
+
+\subsection{Intricacies of the Data Generating Process}
+The motivation for this publication is not only to present some analytical statistical methods to panel data but also to describe the intricacies of (this) surfing data. Explicitly, we have focused our efforts on one specific part of this data, the panel. There are many other aspects of this data that make it interesting from a statistical perspective.
 
 \subsubsection{On the Ordering of Waves}
-Each wave has a unique identifier, called a “Wave ID”. These were valuable when collecting information and aggregating across procedures. Additionally, wave score data for a particular wave may be found at:
-	INSERT LINK HERE
-Each wave surfed in the world surf league appears to have a Wave ID. Hence, the Wave IDs for the World Surf League Championship tour are not linearly ordered or increase inconstant multiple. The IDs are strictly increasing from heat to heat, I.e. if waveid1 < waveid2 then the wave given by waveid1 is in the same heat or prior heat to that of waveid2. 
+Each wave has a unique identifier, called a “Wave ID”. These were valuable when collecting information and aggregating across procedures. Since Wave IDs are used in other WSL events, they are not linearly ordered (in our sample) nor do they increase in constant multiple. The IDs are strictly increasing from heat to heat, I.e. if waveid1 < waveid2 then the wave given by waveid1 is in the same heat or prior heat to that of waveid2. 
 
-Within an a particular heat, Wave IDs do not determine the order in which the waves were taken. However, the order determined by the Wave IDs may be considered as a close approximation. On one hand, assuming the waves occurred in the order of Wave ID is a close approximation to reality and wrong. Unfortunately, we cannot provide a quantitative estimate for how close this is to the true ordering of waves. 
-	IT IS INTERESTING TO CONSIDER WHAT A QUANTITATIVE ESTIMATE WOULD EVEN LOOK LIKE.
-On the other hand, taking waves within a heat to be exchangeable would be a poor reflection of the heat- that is- in our opinion. It is a regular practice of the amazing and vibrant surf commentators to replay waves from earlier in the heat in order to speculate if a recent wave, that has yet to be scored, will receive a score higher or lower than a prior wave. That is, they assume judges are consistent with their scoring, i.e. inferior rides receive lower scores, equivalent rides receive equivalent scores, and superior rides receive higher scores.
-This is an assumption of theirs which is up to personal interpretation. I, a surfer, and someone who watches surfing, thinks this is roughly appropriate. Another possible heat level dynamic to make note of is “score taming” for rides early in a heat. Precisely, the forgoing belief (also mentioned by the commentators) is that judges will resist giving especially high scores or 10s early on in a heat in case another ride occurs later one which must be given a sufficient premium over prior scores.
+Within an a particular heat, Wave IDs do not exactly determine the order in which the waves were taken. However,the order determined by the Wave IDs could be considered as a close approximation. Unfortunately, we cannot provide a quantitative estimate for how close this is to the true ordering of waves (It is interesting to consider what form a quantitative estimate would take).
+On the other hand, taking waves within a heat to be exchangeable may be a poor reflection of the heat dynamics. It is a regular practice of the vibrant surf commentators to replay waves from earlier in the heat in order to speculate if a recent wave, that has yet to be scored, will receive a score higher or lower than a prior wave. That is, they assume judges are roughly consistent with their scoring, so an inferior ride receives a lower scores and a superior ride receives a higher score (with some small degree of error). This is an assumption of theirs which is up to personal interpretation. Another heat level dynamic noted by the commentators is that of “score taming” for rides early in a heat. The idea is that judges will resist giving especially high scores or 10s earlier on in a heat in case there is another ride later on that should be awarded a sufficient point premium over prior scores.
 
-On Priority:
-
-On Interference Calls:
-
-On Judge Scores:
+\subsubsection{On Priority}
+\subsubsection{On Interference Calls}
+\subsubsection{On Judge Scores}
 
 After the long process of scraping, cleaning, and validating the data, we set out to perform some basic analyses.
 
 \section{Preliminary Analysis}
 Our goal is to determine if judges have a tendency to give higher scores to surfers that share their same nationality.
 
-The straight forward approach is to test the differences in means between judges with the same nationality as the surfer and those with a different nationality. So we perform a hypothesis test where our hypotheses are:
-\[ H_0: \mu_M  - \mu_{\neg M} = 0  \quad H_1: \mu_M -\mu_{\neg M} \neq 0 \]
-And the test statistic is $ t = \frac{\bar{x}}{s/\sqrt{N}} $. Note that we are performing a one sample t-test on a series of data $(x_i)_{i=1}^N$ where $x_i := \mu_{M,i}  - \mu_{\neg M,i}$.  We'd like to call a panel for a wave our "statistical unit". This would be a lie. Not every panel is included in these tests because some panels have 0 Judges from the same country as the surfer riding the wave. In those cases the difference in means between Matching judges and Non-Matching judges looks like:
-\[\frac{\sum_{j \in \text{Matching Judges}} score(j) }{|\{Matching Judges\}|} - \frac{\sum_{j \in\text{Non-Matching Judges}} score(j) }{|\{Non-Matching Judges\}|} = \frac{0}{0} - \frac{\sum_{j \in\text{Non-Matching Judges}} score(j) }{|\{Non-Matching Judges\}} \]
-This is undefined. Nonetheless, we are only interested in the difference in means exactly when there is a match between at least one judge's nationality and the surfer's nationality. Carrying out this test we obtain a t-value of 6.71160420326186, thus under the null hypothesis the probability we obtain this sample is less than 0.001. This is when we would typically write "therefore, we would reject the null hypothesis". There is nothing fishy about this, however the picture isn't so compelling and this procedure doesn't seem to pass the scream-"the judges are biased in favor of surfers from their home country"-at-a-surf-competition test. The latter is certainly subjective. 
+Throughout the remainder of this paper, we have used the 15990 that provide every judge's score and country. The wave in our sample with the smallest Wave Id ("1015077") is from Round 7 Heat 5 of the 2017 Trestles Event when Jadson Andre, a Brazilian surfer, is awarded a 5.83, from 5 judges who gave the scores, 5.5, 5.5, 6.0, 6.0, 6.5, and are from USA, AUS, USA, USA, BRA, respectively.
 
-\includegraphics[width=\textwidth]{./visuals/ttests/CCtrue/EmpDiffInMeansCDF.png}
-\includegraphics[width=\textwidth]{./visuals/ttests/CCfalse/EmpDiffInMeansCDF.png}
+The simple approach is to test the differences in means between judges with the same nationality as the surfer and those with a different nationality. So we perform a hypothesis test where our hypotheses are:
+\[ H_0: \mu_M  - \mu_{\neg M} = 0  \quad H_1: \mu_M -\mu_{\neg M} \neq 0 \]
+And the test statistic is $ t = \frac{\bar{x}}{s/\sqrt{N}} $. Note that we are performing a one sample t-test on a series of data $(x_i)_{i=1}^N$ where $x_i := \mu_{M,i}  - \mu_{\neg M,i}$.  Not every panel is included in these tests because some panels have 0 Judges from the same country as the surfer riding the wave. In those cases the difference in means between Matching judges and Non-Matching judges would be undefined. Nonetheless, we are only interested in the difference in means exactly when there is a match between at least one judge's nationality and the surfer's nationality. Carrying out this test we obtain a t-value of 6.71160420326186, thus under the null hypothesis the probability we obtain this sample is less than 0.001. 
+\[\text{therefore, we would reject the null hypothesis}\]
+There is nothing fishy about this, however the picture isn't so compelling and this procedure doesn't seem to pass the scream-"the judges are biased in favor of surfers from their home country"-at-a-surf-competition test. The latter is certainly subjective.
+
+
 
 %\includegraphics[width=8cm]{./visuals/DiffInMeansCDFbyevent.png}
 %\includegraphics[width=8cm]{./visuals/DiffInMeansCDFbyeventOrig.png}
 %\includegraphics[width=8cm]{./visuals/DiffInMeansCDFbyathOrig.png}
 
+\includegraphics[width=0.5\textwidth]{./visuals/ttests/CCtrue/EmpDiffInMeansCDF.png}
 \begin{table*}
 \caption{Difference In Means t-test by Country (CC=True)}
 \label{DiffInMeansttestsCCtrue}
@@ -139,22 +149,36 @@ t-val  & 2.703 & 2.302 & 3.632 & 0.854 & 5.082 & 2.072  \\ \hline
 \end{tabular} \end{center}
 \end{table*}
 
-\begin{table*}
-\caption{Difference In Means t-test by Country (CC=False)}
-\label{DiffInMeansttestsCCfalse}
-\begin{center} \begin{tabular}{|c|c|c|c|c|c|c|c|c|} \hline
-Origin & AUS & BRA & FRA & HAW & PRT & PYT & USA & ZAF  \\ \hline
-N & 3250 & 5234 & 682 & 122 & 203 & 10 & 1131 & 257  \\ \hline
-$\hat{\mu}$ & 0.015 & 0.009 & 0.048 & 0.025 & 0.022 & 0.01 & 0.031 & 0.044  \\ \hline
-t-val & 2.703 & 2.302 & 3.927 & 0.914 & 0.854 & 0.07 & 3.306 & 2.072  \\ \hline
-\end{tabular} \end{center}
-\end{table*}
+%\includegraphics[width=0.75\textwidth]{./visuals/ttests/CCfalse/EmpDiffInMeansCDF.png}
+%\begin{table*}
+%\caption{Difference In Means t-test by Country (CC=False)}
+%\label{DiffInMeansttestsCCfalse}
+%\begin{center} \begin{tabular}{|c|c|c|c|c|c|c|c|c|} \hline
+%Origin & AUS & BRA & FRA & HAW & PRT & PYT & USA & ZAF  \\ \hline
+%N & 3250 & 5234 & 682 & 122 & 203 & 10 & 1131 & 257  \\ \hline
+%$\hat{\mu}$ & 0.015 & 0.009 & 0.048 & 0.025 & 0.022 & 0.01 & 0.031 & 0.044  \\ \hline
+%t-val & 2.703 & 2.302 & 3.927 & 0.914 & 0.854 & 0.07 & 3.306 & 2.072  \\ \hline
+%\end{tabular} \end{center}
+%\end{table*}
 
-\section{The Bare Bones Version}
-This is the short version of what I'm trying to do. 
-The Definitions and Notations are at the top and will be consistent throughout this section.
+\section{Summary Statistics}
 
-\section{Random Panel Approach}
+
+
+\section{Random Panels}
+
+Each time a surfer rides a wave, there are 5 judges, $j_1,j_2,j_3,j_4,j_5$, giving the scores, $j(v)=j_1(v),j_2(v),j_3(v),j_4(v),j_5(v)$. The subscripts are arbitrary, and each $j_i$ is a map $j_i:WAVEID \rightarrow \{0.1,0.2,\dots,9.9,10.0\}$. The set of judges will be denoted as j, and for a wave, v, the \textit{set} of scores given by the judges is $j(v) = \{j_1(v),j_2(v),j_3(v),j_4(v),j_5(v)\}$. If each judge gives a different score for wave v, then $|j(v)| = 5$, otherwise $|j(v)| < 5$. The first order statistic of the scores is the minimum score, i.e. $\min(j(v))$. So we can define the first order statistic of the set of judges as the inverse image of the minimum score, $\{j_i \mid j_i(v) = \min(j(v))\}$, denoted as $J^1$. Likewise the last order statistic is $J^{|j(v)|}(v) = \{ j_i \mid j_i(v) = max(j(v))\}$, denoted $J^\#$. So, for wave v, j has $|j(v)|$ order statistics. Since this number varies over waves, we define the order statistic of the judges for a given wave to be $|j(v)|$-tuple, $J_v = (J^1,\dots,J^\#)$.
+
+We have co-variate information $y_i$ for each $j_i$ and wish to understand how the $y_i$ behaves with the general $J_v$, and particularly the case when one or more of the $y_i$ is the same as the judge country (i.e. $I_M = 1$), as well as other co-variate information. One approach is to pass the structure of $J_v$ to the $y_i$ by defining $ Y_v = (\{y_i \mid j_i \in J^1\}, \dots, \{y_i \mid j_i \in J^\#\})$. This seems like a good option. In the first wave in our sample, there were two judges that gave Jadson Andre a 6.0 and 6.0 for his ride and judge nationalities are USA and USA. So there exists a wave such that two or more co-variates of elements of some $J^k$ are identical. Since these are sets, for some i we have $|Y^i|<|J^i|$ which does not $\sum_i |Y^i| < \sum_i |J^i|$, which does not seem like a good attribute of a statistical procedure, and $4462/15990 \approx 0.279$ of the panels have two or more judges from the same country giving the same score.
+
+So it makes sense to count the number judges from each country in each pod. The literature suggests that one implement this using a "multiset", which is function from some set (in our case C) to the natural numbers $\{0,1,2,\dots\}$ that returns the number of judges from a country, provided with a country label. We have implemented this by taking a vector,$m$, whose i-th entry corresponds to the i-th judge country (when arranged alphabetically). This is a sequence of bijections from the values of the entries $m^1,\dots,m^{|\#C|}$ to the entry indices $1,\dots,\#C$ to counties $AUS,\dots,ZAF$. We have ensured consistency throughout the code in using this coordinate bases using julia's Enum type and the @enum macro, which defines ORIG as an Enum Type and the instances of ORIG, if c is a ORIG, then Int(c) is defined by instances(ORIG)[Int(c)] = c. This is the default relation, however a user may specify any other bijection from the instances of an Enum type to the integers.
+
+This means that for a wave v, the co-variate $Y_v$ is the $\#Y_v$-tuple entries are vectors of integers denoting the number of judges from a given ORIG, using the coordinates specified in the prior paragraph. This is quite useful. The sum of the entries of $Y^i$is the number of judges giving the ith lowest score. Then, $\hat{1}^T Y_v$ is an ordered partition of 5, and $\sum_i^{\#Y_v} Y^i$
+
+
+$ \{w \mid X(w) = x \} $
+$ \{x \mid w = X^{-1}(x) \}$
+
 A panel of judge-scores may be considered a matrix of counts of the number of judges from country c giving score s:
 $ Q = \overbrace{\begin{bmatrix}
 N_{(AUS,0.1)} & N_{(AUS,0.2)} & \dots & N_{(AUS,9.9)} & N_{(AUS,10.0)} \\
@@ -264,8 +288,12 @@ $colspan(z_t) \subseteq span\{e_c \mid c \in supp \sum z_t^i\}$
 
 Further we may decompose the series of panels $Y=(y_i)_{i=1}^M$ into $Y_{(1)}, \dots ,Y_{(5)}$where $Y_{(k)} := (y_i \in Y \mid |\bigcap_{E_j\subset E_C \mid colspan(z_i) \subseteq span E_j} E_j|=k)$ where $E_C = \{e_c \mid c \in C\}$. $Y_{(k)} $may be interpreted as the panels that have judges from k distinct origins. 
 
-
 \section{Random Arrangement Approach}
+Our goal is to account for the structure of the order statistic of a panel in a way that does not compromise an empirical distribution or interpretability.
+
+
+
+
 
 \subsubsection{Notations}
 Some Set will be denoted: $S$
@@ -299,6 +327,7 @@ Then, the order statistic of Q would be: Z = (Array of judges giving min(Score),
 
 The kind of panel we see usually is some Z s.t $\sum_i^{\#z} \#z^i = 5 $.
 (chk if this is true in messy data, i dont think so. use messy data.)
+
 \subsection{Testing Exchangeability}
 Measuring Non-exchangeability. If you search something like that up a recent paper on arxiv says ppl havent done it. seems hard to beleive. anyways, topic seems relevant and I think useful in a very general context. Also its explainable and I think robust.
 
@@ -312,13 +341,10 @@ $P( F_n(t) - \sqrt{\frac{-\log(2\alpha/ k)}{2n}} < F(t) < F_n(t) + \sqrt{\frac{-
 $P( |F_n(t) - F(t)|\leq \sqrt{\frac{-\log(2\alpha/ k)}{2n}} ) \leq \alpha $ 
 This is true with the data.
 
+See KS_stats.jl, KS_stats_conditional.jl
 The KS statistic really just bounds on max abs diff is really not compelling given the distribution of residuals. It might make sense to use this pointiwse a bunch.
 
 Recall that  $S(F_n(x))$ is the Uniformly minimum distance unbiased estimator. Therefore every concentration inequality that holds for max will hold for the norm defined in the prior section.
-
-
-
-\section{Methods}
 
 
 \subsection{Distributions over measures}
@@ -358,8 +384,6 @@ MacEachern's Criterion for distributions over collections of measures. (Foti and
 \item If $(x_n)_{n\in \mathbb{N}}\rightarrow_n \tilde{x}$ then $G^{(x_n)}\rightarrow_n G^{(\tilde{x})}$.
 \end{itemize}
 
-
-
 $\mathcal{S}f = \frac{1}{(\#f)!}\sum_{g\in \mathfrak{S}_{\#f}}gf = \int_{\mathfrak{S}_{\#f}} gf dg $
 $\mathcal{A}f = \frac{1}{(\#f)!}\sum_{g\in \mathfrak{S}_{\#f}} (-1)^g gf $
 
@@ -394,7 +418,7 @@ We extend this definition to any $w =\{w_k \mid k \in K\} \subseteq \bigcup_{k\i
 
 $N_C: C^k \rightarrow V_C $ given by $ w \mapsto \begin{bmatrix} N_{AUS}w \\ N_{BRA}w \\ \vdots \\ N_{ZAF}w \end{bmatrix} $ and for each $ c \in C, N_cw = \sum_{i=1}^{\#w} 1_{w^i = c} $
 
-\subsubsection{A Random Panel}
+\subsubsection{A Random Arrangement}
 Let Y be the random variable corresponding to a random tuple, y, of length $\#y$, satisfying $ |\hat{N_C}y|=\sum_{i=1}^{\#y} N_C y^i$ = Monomial of Panel Origins, and $\sum_{i=1}^{\#y} \#y^i $ = Number of Judges . This is all we require of a random panel. 
 
 It will be convenient to consider a similar random variable, Z, corresponding to a random tuple z (consisting of vectors in $V_C$), of length $\#z$, that satisfies $\sum_{i=1}^{\#z} z^i$ = Monomial of Panel Origins and $|\sum_{i=1}^{\#z} z^i | = $ Number of Judges. In either case, the $i$th entry of the tuple identifies the origins of the judges who gave the  $i$th lowest score, which is the same thing as the $(\#-i)$th highest score. 
@@ -413,7 +437,6 @@ More generally
 Get k judges
 Judges may be partitioned into n different buckets
 obtain some ordered partition of this vector
-
 
 \section{Appendix}
 \subsection{A Probability Algebra}
