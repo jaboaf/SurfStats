@@ -120,8 +120,6 @@ On the other hand, taking waves within a heat to be exchangeable may be a poor r
 
 After the long process of scraping, cleaning, and validating the data, we set out to perform some basic analyses.
 
-\subsection{Summary Statistics}
-
 \section{Preliminary Analysis}
 Our goal is to determine if judges have a tendency to give higher scores to surfers that share their same nationality.
 
@@ -129,7 +127,10 @@ Throughout the remainder of this paper, we have used the 15990 that provide ever
 
 The simple approach is to test the differences in means between judges with the same nationality as the surfer and those with a different nationality. So we perform a hypothesis test where our hypotheses are:
 \[ H_0: \mu_M  - \mu_{\neg M} = 0  \quad H_1: \mu_M -\mu_{\neg M} \neq 0 \]
-And the test statistic is $ t = \frac{\bar{x}}{s/\sqrt{N}} $. Note that we are performing a one sample t-test on a series of data $(x_i)_{i=1}^N$ where $x_i := \mu_{M,i}  - \mu_{\neg M,i}$.  Not every panel is included in these tests because some panels have 0 Judges from the same country as the surfer riding the wave. In those cases the difference in means between Matching judges and Non-Matching judges would be undefined. Nonetheless, we are only interested in the difference in means exactly when there is a match between at least one judge's nationality and the surfer's nationality. Carrying out this test we obtain a t-value of 6.71160420326186, thus under the null hypothesis the probability we obtain this sample is less than 0.001. This is when we would typically write "therefore, we would reject the null hypothesis". There is nothing fishy about this, however the picture isn't so compelling and this procedure doesn't seem to pass the scream-"the judges are biased in favor of surfers from their home country"-at-a-surf-competition test. The latter is certainly subjective.
+And the test statistic is $ t = \frac{\bar{x}}{s/\sqrt{N}} $. Note that we are performing a one sample t-test on a series of data $(x_i)_{i=1}^N$ where $x_i := \mu_{M,i}  - \mu_{\neg M,i}$.  Not every panel is included in these tests because some panels have 0 Judges from the same country as the surfer riding the wave. In those cases the difference in means between Matching judges and Non-Matching judges would be undefined. Nonetheless, we are only interested in the difference in means exactly when there is a match between at least one judge's nationality and the surfer's nationality. Carrying out this test we obtain a t-value of 6.71160420326186, thus under the null hypothesis the probability we obtain this sample is less than 0.001. 
+\[\text{therefore, we would reject the null hypothesis}\]
+There is nothing fishy about this, however the picture isn't so compelling and this procedure doesn't seem to pass the scream-"the judges are biased in favor of surfers from their home country"-at-a-surf-competition test. The latter is certainly subjective.
+
 
 
 %\includegraphics[width=8cm]{./visuals/DiffInMeansCDFbyevent.png}
@@ -159,6 +160,10 @@ t-val  & 2.703 & 2.302 & 3.632 & 0.854 & 5.082 & 2.072  \\ \hline
 %t-val & 2.703 & 2.302 & 3.927 & 0.914 & 0.854 & 0.07 & 3.306 & 2.072  \\ \hline
 %\end{tabular} \end{center}
 %\end{table*}
+
+\section{Summary Statistics}
+
+
 
 \section{Random Panels}
 
