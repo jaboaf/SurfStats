@@ -21,7 +21,8 @@ evtNameToEVT = Dict([
 	"Trestles" => Trestles
 ])
 
-const RND = [i for i in 1:7]
+const RND = Tuple([i for i in 1:8])
+const HT = Tuple(1:16)
 const CC = false
 if CC
 	data = JSON.parse( open("data/CleanAllDataCC.txt", "r") )

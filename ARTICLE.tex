@@ -7,7 +7,7 @@
 
 
 \newtheorem{theorem}{Theorem}
-\newtheorem*{definition}{Definition}
+\newtheorem*{definition}{Definitiown}
 \newtheorem*{remark}{Remark}
 \newtheorem*{claim}{Claim}
 \newtheorem*{lemma}{Lemma}
@@ -123,12 +123,15 @@ After the long process of scraping, cleaning, and validating the data, we set ou
 \section{Preliminary Analysis}
 Our goal is to determine if judges have a tendency to give higher scores to surfers that share their same nationality.
 
-Throughout the remainder of this paper, we have used the 15990 that provide every judge's score and country. The wave in our sample with the smallest Wave Id ("1015077") is from Round 7 Heat 5 of the 2017 Trestles Event when Jadson Andre, a Brazilian surfer, is awarded a 5.83, from 5 judges who gave the scores, 5.5, 5.5, 6.0, 6.0, 6.5, and are from USA, AUS, USA, USA, BRA, respectively.
+Throughout the remainder of this paper, we have used the 15990 waves that provide every judge's score and country. The wave in our sample with the smallest Wave Id ("1015077") is from Round 7 Heat 5 of the 2017 Trestles Event when Jadson Andre, a Brazilian surfer, is awarded a 5.83, from 5 judges who gave the scores, 5.5, 5.5, 6.0, 6.0, 6.5, and are from USA, AUS, USA, USA, BRA, respectively.
 
 The simple approach is to test the differences in means between judges with the same nationality as the surfer and those with a different nationality. So we perform a hypothesis test where our hypotheses are:
 \[ H_0: \mu_M  - \mu_{\neg M} = 0  \quad H_1: \mu_M -\mu_{\neg M} \neq 0 \]
 And the test statistic is $ t = \frac{\bar{x}}{s/\sqrt{N}} $. Note that we are performing a one sample t-test on a series of data $(x_i)_{i=1}^N$ where $x_i := \mu_{M,i}  - \mu_{\neg M,i}$.  Not every panel is included in these tests because some panels have 0 Judges from the same country as the surfer riding the wave. In those cases the difference in means between Matching judges and Non-Matching judges would be undefined. Nonetheless, we are only interested in the difference in means exactly when there is a match between at least one judge's nationality and the surfer's nationality. Carrying out this test we obtain a t-value of 6.71160420326186, thus under the null hypothesis the probability we obtain this sample is less than 0.001. 
-\[\text{therefore, we would reject the null hypothesis}\]
+
+\[\text{therefore, we reject the null hypothesis}\]
+
+
 There is nothing fishy about this, however the picture isn't so compelling and this procedure doesn't seem to pass the scream-"the judges are biased in favor of surfers from their home country"-at-a-surf-competition test. The latter is certainly subjective.
 
 
