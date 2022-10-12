@@ -4,7 +4,9 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{graphicx}
+\usepackage{mathtools}
 
+\newcommand{\mathscr}{\mathcal}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem*{definition}{Definitiown}
@@ -344,7 +346,7 @@ $P( F_n(t) - \sqrt{\frac{-\log(2\alpha/ k)}{2n}} < F(t) < F_n(t) + \sqrt{\frac{-
 $P( |F_n(t) - F(t)|\leq \sqrt{\frac{-\log(2\alpha/ k)}{2n}} ) \leq \alpha $ 
 This is true with the data.
 
-See KS_stats.jl, KS_stats_conditional.jl
+%See KS_stats.jl, KS_stats_conditional.jl
 The KS statistic really just bounds on max abs diff is really not compelling given the distribution of residuals. It might make sense to use this pointiwse a bunch.
 
 Recall that  $S(F_n(x))$ is the Uniformly minimum distance unbiased estimator. Therefore every concentration inequality that holds for max will hold for the norm defined in the prior section.
@@ -353,7 +355,7 @@ Recall that  $S(F_n(x))$ is the Uniformly minimum distance unbiased estimator. T
 \subsection{Distributions over measures}
 Let:
 $\Omega_C = \{(AUS)^{n_A}\otimes(BRA)^{n_B}\otimes(ESP)^{n_E}\otimes(FRA)^{n_F}\otimes(PRT)^{n_P}\otimes(USA)^{n_U}\otimes(ZAF)^{n_Z} \mid n = (n_A,n_B,n_E,n_F,n_P,n_U,n_Z) \in \mathbb{N}^7 \}$ $ = \{Sort(w) \mid w \in l(C)\}$
-$\mu$ be a random measure on $\mathscr{P}(\Omega_C)$, i.e. $\mu:\mathscr{P}(\Omega_C)\rightarrow[0,1]$. 
+$\mu$ be a random measure on $\mathcal{P}(\Omega_C)$, i.e. $\mu:\mathcal{P}(\Omega_C)\rightarrow[0,1]$. 
 
 Will Show: $\mu$ induces a distribution on $T(V_C)$.
 $G^{(w)} := \frac{1}{ (N_C w)!}1_{\mathfrak{S}w} = \frac{1}{ \prod_{c\in C}(N_{c}w)!}1_{\mathfrak{S}w} =$

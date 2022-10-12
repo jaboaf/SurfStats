@@ -1,0 +1,26 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{}%
+\contentsline {section}{\numberline {2}Motivation}{1}{}%
+\contentsline {section}{\numberline {3}Background: Professional Surfing}{3}{}%
+\contentsline {subsection}{\numberline {3.1}Overview}{3}{}%
+\contentsline {subsection}{\numberline {3.2}Format of Men's Championship Tour}{3}{}%
+\contentsline {section}{\numberline {4}Data}{3}{}%
+\contentsline {subsection}{\numberline {4.1}Data Quality}{4}{}%
+\contentsline {subsection}{\numberline {4.2}Notions of “Origin”, “Country”, or “Nationality”}{4}{}%
+\contentsline {subsection}{\numberline {4.3}Intricacies of the Data Generating Process}{4}{}%
+\contentsline {subsubsection}{\numberline {4.3.1}On the Ordering of Waves}{5}{}%
+\contentsline {subsubsection}{\numberline {4.3.2}On Priority}{5}{}%
+\contentsline {subsubsection}{\numberline {4.3.3}On Interference Calls}{5}{}%
+\contentsline {subsubsection}{\numberline {4.3.4}On Judge Scores}{5}{}%
+\contentsline {section}{\numberline {5}Preliminary Analysis}{5}{}%
+\contentsline {section}{\numberline {6}Summary Statistics}{7}{}%
+\contentsline {section}{\numberline {7}Random Panels}{7}{}%
+\contentsline {subsection}{\numberline {7.1}A "Graded" Log-Linear Model}{10}{}%
+\contentsline {section}{\numberline {8}Random Arrangement Approach}{11}{}%
+\contentsline {subsubsection}{\numberline {8.0.1}Notations}{11}{}%
+\contentsline {subsubsection}{\numberline {8.0.2}Definitions}{11}{}%
+\contentsline {subsection}{\numberline {8.1}Testing Exchangeability}{12}{}%
+\contentsline {subsection}{\numberline {8.2}Distributions over measures}{12}{}%
+\contentsline {subsection}{\numberline {8.3}Definitions}{13}{}%
+\contentsline {subsubsection}{\numberline {8.3.1}A Random Arrangement}{14}{}%
+\contentsline {section}{\numberline {9}Appendix}{15}{}%
+\contentsline {subsection}{\numberline {9.1}A Probability Algebra}{15}{}%
