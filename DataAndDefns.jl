@@ -32,7 +32,7 @@ if CC
 	Using 2 digit codes
 	"-1"
 	=#
-	isoDict = Dict([3
+	isoDict = Dict([
 		"Australia" => AUS,
 		"Brazil" => BRA,
 		"Basque Country" => ESP,
